@@ -1,0 +1,291 @@
+@charset "UTF-8";
+/* @import url("https://fonts.googleapis.com/css?family=Nova+Mono&display=swap"); */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  height: 100vh;
+  background: #92bfd1;
+  font-size: 14px;
+  font-family: "Nova Mono", monospace;
+}
+.wrapper {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Dryer {
+  background: #ececf4;
+  width: 18.75rem;
+  height: 24.2647rem;
+  border-radius: .9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset -0.9375rem -0.9375rem 0 0 rgba(196, 196, 210, 0.3);
+  padding: 5.3125rem 0 2.8125rem;
+}
+.washingMachine {
+  background: #ececf4;
+  width: 18.75rem;
+  height: 24.2647rem;
+  border-radius: 0.9375rem;
+  border-top: 0.9375rem solid #80819c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset -0.9375rem -0.9375rem 0 0 rgba(196, 196, 210, 0.3);
+  padding: 5.3125rem 0 2.8125rem;
+}
+.Dryer:before, .Dryer:after, .washingMachine:before, .washingMachine:after {
+  content: "";
+  position: absolute;
+  border: 0.25rem solid transparent;
+  width: 150%;
+}
+.Dryer:before {
+  border-bottom-color: #c4c4d2;
+  height: 4.8125rem;
+  top: 0;
+  box-shadow: inset 0 -0.9375rem 0 0 rgba(196, 196, 210, 0.3);
+}
+.washingMachine:before {
+  border-bottom-color: #c4c4d2;
+  height: 4.375rem;
+  top: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 -0.9375rem 0 0 rgba(196, 196, 210, 0.3);
+}
+.washingMachine:after {
+  border-top-color: #c4c4d2;
+  height: 1.875rem;
+  bottom: 0;
+}
+.washingMachine .controls, .Dryer .controls {
+  top: 1.1932rem;
+  text-align: center;
+  right: 1.875rem;
+  background: #242527;
+  color: lightgreen;
+  border-radius: 0.3125rem;
+  padding: 0.1875rem 0.625rem;
+  font-weight: 500;
+  font-size: 1em;
+  justify-content: center;
+}
+.washingMachine .controls, .washingMachine .controls:before, .washingMachine .controls:after, .Dryer .controls, .Dryer .controls:before, .Dryer .controls:after {
+  position: absolute;
+}
+.washingMachine .controls, .washingMachine .controls:after, .Dryer .controls, .Dryer .controls:after {
+  height: 1.4915rem;
+  min-width: 3.75rem;
+}
+.washingMachine .controls, .washingMachine .controls:before,  .Dryer .controls, .Dryer .controls:before {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s cubic-bezier(0.56, 0.35, 0, 1.35);
+}
+.washingMachine .controls:before, .Dryer .controls:before {
+  content: "━━";
+  font-size: 0.875rem;
+  color: #80819c;
+  box-shadow: inset 0rem -0.9375rem 0rem 0rem rgba(196, 196, 210, 0.3);
+  height: 1.9886rem;
+  width: 1.9886rem;
+  border: 0.1875rem solid #c4c4d2;
+  border-radius: 100%;
+  transform: rotate(0deg);
+  left: calc(100% + -8.4943rem);
+}
+.washingMachine .controls:after, .Dryer .controls:after {
+  content: "";
+  left: calc(100% + -15rem);
+  background: rgba(196, 196, 210, 0.3);
+  border-radius: 0.1875rem 0.1875rem 0.625rem 0.625rem;
+  border: 0.1875rem solid #c4c4d2;
+  box-shadow: inset 0 0.625rem 0 0 #c4c4d2;
+}
+.washingMachine .door, .washingMachine .tub, .Dryer .door {
+  transition: all 0.2s ease-in-out;
+}
+.washingMachine .door {
+  width: 12.5rem;
+  height: 12.5rem;
+  border: 1.5625rem solid #80819c;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  box-shadow: inset 0.3125rem 0.625rem 0 0 rgba(0, 0, 0, 0.1), 0.3125rem -0.0625rem 0 0 transparent;
+  transform-origin: 0% 0%;
+  transform: rotateY(0deg);
+}
+.Dryer .door {
+  width: 14.0625rem;
+  height: 14.0625rem;
+  border: 0.375rem solid #80819c;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 3.25rem;
+  z-index: 1;
+  box-shadow: inset 0.3125rem 0.625rem 0 0 rgba(0, 0, 0, 0.1), 0.3125rem -0.0625rem 0 0 transparent;
+  transform-origin: 0% 0%;
+  transform: rotateY(0deg);
+}
+.washingMachine .door:before, .washingMachine .door:after, .Dryer .door:before, .Dryer .door:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.washingMachine .door:after, .Dryer .door:after {
+  background: #666783;
+  height: 50%;
+  width: 17%;
+  right: 0;
+  border-radius: 40% 30% 30% 40%/50% 45% 45% 50%;
+  transition: all 0.2s ease-in-out;
+  z-index: 3;
+}
+.washingMachine .door:before, .Dryer .door:before {
+  width: 60%;
+  height: 60%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  border: 0.3125rem solid transparent;
+  border-left: 0.9375rem solid white;
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0.2;
+  box-shadow: inset -0.625rem 0.625rem 0 0 rgba(255, 255, 255, 0.2);
+  border-radius: 40% 30% 30% 40%/50%;
+  z-index: 2;
+}
+.washingMachine .tub {
+  width: 10.9375rem;
+  height: 10.9375rem;
+  background: #453e57;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: 0 0 0 0.4375rem rgba(196, 196, 210, 0.3);
+}
+.washingMachine .tub .clothes {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+}
+.washingMachine .tub .clothes:nth-child(1) {
+  background: linear-gradient(#48873e, #7b9f17);
+  width: 70%;
+  height: 25%;
+  bottom: 10%;
+  right: -20%;
+  transform: rotate(-20deg);
+  border-radius: 49% 38% 65% 8%/30% 12% 51% 36%;
+}
+.washingMachine .tub .clothes:nth-child(2) {
+  background: linear-gradient(#c22323, #e15050);
+  width: 100%;
+  height: 20%;
+  border-radius: 64% 40% 27% 47%/63% 63% 32% 36%;
+  bottom: 0;
+}
+.washingMachine .tub .clothes:nth-child(3) {
+  background: linear-gradient(#5a5589, #4f46b4);
+  width: 70%;
+  height: 25%;
+  transform: rotate(40deg);
+  border-radius: 41% 38% 71% 8%/51% 36% 51% 24%;
+  bottom: 0;
+  left: -10%;
+}
+.washingMachine.isWashing, .Dryer.isWashing {
+  animation-name: shake;
+  animation-duration: 100ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.washingMachine.isWashing .controls:before, .Dryer.isWashing .controls:before {
+  transform: rotate(45deg);
+}
+.washingMachine.isWashing .tub {
+  animation-name: rotate;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.washingMachine.isFilled .tub .clothes {
+  opacity: 1;
+}
+.washingMachine.isStarting, .Dryer.isStarting {
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0, -0.01, 0.61, 0.01);
+}
+.washingMachine.isStarting .tub {
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0, -0.01, 0.61, 0.01);
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  25% {
+    transform: translate(-0.1062rem, 0.1062rem) rotate(0.5deg);
+  }
+  50% {
+    transform: translate(-0.0437rem, -0.0437rem) rotate(0.5deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.playground {
+  margin-top: 0.625rem;
+  margin-bottom: 1.25rem;
+  width: 18.75rem;
+  display: flex;
+}
+.playground button {
+  flex: 1;
+  background: #ececf4;
+  border: none;
+  outline: none;
+  border-radius: 0.375rem;
+  padding: 0.4375rem 0.625rem;
+  box-shadow: -0.0625rem 0.125rem 0 0 rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease-in-out;
+  font: inherit;
+  font-size: 0.8em;
+}
+.playground button:hover:not(:disabled) {
+  background: white;
+  cursor: pointer;
+}
+.playground button::-moz-focus-inner {
+  border: 0;
+}
+.playground button:active:not(:disabled) {
+  box-shadow: 0rem 0.0625rem 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Padding to top of wrapper when small screen size */
+@media (max-width: 75rem) {
+  .wrapper {
+    padding-top: 1.25rem;
+  }
+}
